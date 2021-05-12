@@ -1,12 +1,4 @@
 {
-  "name": "TSBareWeApp",
-  "displayName": "TSBareWeApp",
-  "expo": {
-    "name": "TSBareWeApp",
-    "slug": "TSBareWeApp",
-    "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
-  }
+  "name": "ViroSam",
+  "displayName": "ViroSam"
 }

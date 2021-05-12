@@ -1,8 +1,7 @@
-import { registerRootComponent } from 'expo';
+import { AppRegistry } from 'react-native';
+import App from './App.js';
 
-import App from './App';
+AppRegistry.registerComponent('ViroSam', () => App);
 
-// registerRootComponent calls AppRegistry.registerComponent('main', () => App);
-// It also ensures that whether you load the app in the Expo client or in a native build,
-// the environment is set up appropriately
-registerRootComponent(App);
+// The below line is necessary for use with the TestBed App
+AppRegistry.registerComponent('ViroSample', () => App);
