@@ -40,9 +40,9 @@ var ARCarDemo = createReactClass({
 	render: function () {
 		return (
 			<ViroARScene>
-				<ViroARPlaneSelector>
+				<ViroARImageMarker target={"logo"}>
 					<Viro3DObject
-						scale={[-85, -85, -85]}
+						scale={[0, 0, 0]}
 						source={require("./res/Crate.obj")}
 						resources={[
 							require("./res/5.png"),
@@ -56,7 +56,15 @@ var ARCarDemo = createReactClass({
 						]}
 						type="OBJ"
 					/>
-				</ViroARPlaneSelector>
+				</ViroARImageMarker>
+				<ViroARImageMarker target={"secondTarget"}>
+					<Viro3DObject
+						scale={[0, 0, 0]}
+						source={require("./res/camp.obj")}
+						resources={[require("./res/Campfire.mtl")]}
+						type="OBJ"
+					/>
+				</ViroARImageMarker>
 			</ViroARScene>
 		);
 	},
@@ -116,6 +124,13 @@ ViroARTrackingTargets.createTargets({
 	logo: {
 		source: {
 			uri: "https://i.imgur.com/G7gHLaX.jpg",
+		},
+		orientation: "Up",
+		physicalWidth: 0.165, // real world width in meters
+	},
+	secondTarget: {
+		source: {
+			uri: "https://i.imgur.com/9SxlZmm.jpg",
 		},
 		orientation: "Up",
 		physicalWidth: 0.165, // real world width in meters
