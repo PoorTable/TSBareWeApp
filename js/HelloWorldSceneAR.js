@@ -40,29 +40,23 @@ var ARCarDemo = createReactClass({
 	render: function () {
 		return (
 			<ViroARScene>
-				<ViroARImageMarker
-					target={"logo"}
-					onAnchorFound={this._onAnchorFound}
-					pauseUpdates={this.state.pauseUpdates}
-				>
-					<ViroARPlaneSelector>
-						<Viro3DObject
-							scale={[-85, -85, -85]}
-							source={require("./res/camp.obj")}
-							resources={[require("./res/Campfire.mtl")]}
-							type="OBJ"
-							animation={{ name: "scaleCar", run: this.state.animateCar }}
-						/>
-						<ViroAmbientLight color="#FdfddF" />
-						<ViroQuad
-							rotation={[-90, 0, 0]}
-							position={[0, -0.001, 0]}
-							width={2.5}
-							height={2.5}
-							arShadowReceiver={true}
-						/>
-					</ViroARPlaneSelector>
-				</ViroARImageMarker>
+				<ViroARPlaneSelector>
+					<Viro3DObject
+						scale={[-85, -85, -85]}
+						source={require("./res/Crate.obj")}
+						resources={[
+							require("./res/5.png"),
+							require("./res/6.png"),
+							require("./res/7.png"),
+							require("./res/8.png"),
+							require("./res/9.png"),
+							require("./res/10.png"),
+							require("./res/11.png"),
+							require("./res/12.png"),
+						]}
+						type="OBJ"
+					/>
+				</ViroARPlaneSelector>
 			</ViroARScene>
 		);
 	},

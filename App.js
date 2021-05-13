@@ -36,7 +36,7 @@ var AR_NAVIGATOR_TYPE = "AR";
 
 // This determines which type of experience to launch in, or UNSET, if the user should
 // be presented with a choice of AR or VR. By default, we offer the user a choice.
-var defaultNavigatorType = AR_NAVIGATOR_TYPE;
+var defaultNavigatorType = UNSET;
 
 export default class ViroSample extends Component {
 	constructor() {
@@ -49,9 +49,8 @@ export default class ViroSample extends Component {
 		this._getExperienceSelector = this._getExperienceSelector.bind(this);
 		this._getARNavigator = this._getARNavigator.bind(this);
 		this._getVRNavigator = this._getVRNavigator.bind(this);
-		this._getExperienceButtonOnPress = this._getExperienceButtonOnPress.bind(
-			this
-		);
+		this._getExperienceButtonOnPress =
+			this._getExperienceButtonOnPress.bind(this);
 		this._exitViro = this._exitViro.bind(this);
 	}
 
@@ -72,16 +71,14 @@ export default class ViroSample extends Component {
 		return (
 			<View style={localStyles.outer}>
 				<View style={localStyles.inner}>
-					<Text style={localStyles.titleText}>
-						Choose your desired experience:
-					</Text>
+					<Text style={localStyles.titleText}>Выберите стенд:</Text>
 
 					<TouchableHighlight
 						style={localStyles.buttons}
 						onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
 						underlayColor={"#68a0ff"}
 					>
-						<Text style={localStyles.buttonText}>AR</Text>
+						<Text style={localStyles.buttonText}>1</Text>
 					</TouchableHighlight>
 
 					<TouchableHighlight
@@ -89,7 +86,7 @@ export default class ViroSample extends Component {
 						onPress={this._getExperienceButtonOnPress(VR_NAVIGATOR_TYPE)}
 						underlayColor={"#68a0ff"}
 					>
-						<Text style={localStyles.buttonText}>VR</Text>
+						<Text style={localStyles.buttonText}>2</Text>
 					</TouchableHighlight>
 				</View>
 			</View>
