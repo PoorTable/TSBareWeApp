@@ -40,9 +40,12 @@ var ARCarDemo = createReactClass({
 	render: function () {
 		return (
 			<ViroARScene>
-				<ViroARImageMarker target={"logo"}>
+				<ViroARPlaneSelector>
 					<Viro3DObject
-						scale={[-5, -5, -5]}
+						visible={true}
+						scale={[0.4, 0.4, 0.4]}
+						position={[0, 0, -5]}
+						rotation={[0, 90, 0]}
 						source={require("./res/Crate.obj")}
 						resources={[
 							require("./res/5.png"),
@@ -56,16 +59,8 @@ var ARCarDemo = createReactClass({
 						]}
 						type="OBJ"
 					/>
-				</ViroARImageMarker>
+				</ViroARPlaneSelector>
 
-				<ViroARImageMarker target={"secondTarget"}>
-					<Viro3DObject
-						scale={[-5, -5, -5]}
-						source={require("./res/camp.obj")}
-						resources={[require("./res/Campfire.mtl")]}
-						type="OBJ"
-					/>
-				</ViroARImageMarker>
 				<ViroAmbientLight color="#FFFFFF" />
 			</ViroARScene>
 		);
