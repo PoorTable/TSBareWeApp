@@ -29,10 +29,12 @@ var sharedProps = {
 // Sets the default scene you want for AR and VR
 var InitialARScene = require("./js/HelloWorldSceneAR");
 var InitialVRScene = require("./js/HelloWorldScene");
+var ThirdARScene = require("./js/ThirdScene");
 
 var UNSET = AR_NAVIGATOR_TYPE;
 var VR_NAVIGATOR_TYPE = "VR";
 var AR_NAVIGATOR_TYPE = "AR";
+var AR1_NAVIGATOR_TYPE = "AR1";
 
 // This determines which type of experience to launch in, or UNSET, if the user should
 // be presented with a choice of AR or VR. By default, we offer the user a choice.
@@ -63,6 +65,8 @@ export default class ViroSample extends Component {
 			return this._getVRNavigator();
 		} else if (this.state.navigatorType == AR_NAVIGATOR_TYPE) {
 			return this._getARNavigator();
+		} else if (this.state.navigatorType == AR1_NAVIGATOR_TYPE) {
+			return this._getAR1Navigator();
 		}
 	}
 
@@ -88,6 +92,14 @@ export default class ViroSample extends Component {
 					>
 						<Text style={localStyles.buttonText}>2</Text>
 					</TouchableHighlight>
+
+					<TouchableHighlight
+						style={localStyles.buttons}
+						onPress={this._getExperienceButtonOnPress(AR1_NAVIGATOR_TYPE)}
+						underlayColor={"#68a0ff"}
+					>
+						<Text style={localStyles.buttonText}>3</Text>
+					</TouchableHighlight>
 				</View>
 			</View>
 		);
@@ -99,6 +111,15 @@ export default class ViroSample extends Component {
 			<ViroARSceneNavigator
 				{...this.state.sharedProps}
 				initialScene={{ scene: InitialARScene }}
+			/>
+		);
+	}
+
+	_getAR1Navigator() {
+		return (
+			<ViroARSceneNavigator
+				{...this.state.sharedProps}
+				initialScene={{ scene: ThirdARScene }}
 			/>
 		);
 	}

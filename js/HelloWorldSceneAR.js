@@ -65,56 +65,6 @@ var ARCarDemo = createReactClass({
 			</ViroARScene>
 		);
 	},
-	_onAnchorFound() {
-		this.setState({
-			animateCar: true,
-		});
-	},
-	_toggleButtons() {
-		this.setState({
-			animName: this.state.animName == "scaleUp" ? "scaleDown" : "scaleUp",
-			playAnim: true,
-		});
-	},
-	_selectWhite() {
-		this.setState({
-			texture: "white",
-			tapWhite: true,
-		});
-	},
-	_selectBlue() {
-		this.setState({
-			texture: "blue",
-			tapBlue: true,
-		});
-	},
-	_selectGrey() {
-		this.setState({
-			texture: "grey",
-			tapGrey: true,
-		});
-	},
-	_selectRed() {
-		this.setState({
-			texture: "red",
-			tapRed: true,
-		});
-	},
-	_selectYellow() {
-		this.setState({
-			texture: "yellow",
-			tapYellow: true,
-		});
-	},
-	_animateFinished() {
-		this.setState({
-			tapWhite: false,
-			tapBlue: false,
-			tapGrey: false,
-			tapRed: false,
-			tapYellow: false,
-		});
-	},
 });
 
 ViroARTrackingTargets.createTargets({
@@ -132,31 +82,6 @@ ViroARTrackingTargets.createTargets({
 		orientation: "Up",
 		physicalWidth: 0.165, // real world width in meters
 	},
-});
-
-ViroAnimations.registerAnimations({
-	scaleUp: {
-		properties: { scaleX: 1, scaleY: 1, scaleZ: 1 },
-		duration: 500,
-		easing: "bounce",
-	},
-	scaleDown: { properties: { scaleX: 0, scaleY: 0, scaleZ: 0 }, duration: 200 },
-	scaleCar: {
-		properties: { scaleX: 0.09, scaleY: 0.09, scaleZ: 0.09 },
-		duration: 500,
-		easing: "bounce",
-	},
-	scaleSphereUp: {
-		properties: { scaleX: 0.8, scaleY: 0.8, scaleZ: 0.8 },
-		duration: 50,
-		easing: "easeineaseout",
-	},
-	scaleSphereDown: {
-		properties: { scaleX: 1, scaleY: 1, scaleZ: 1 },
-		duration: 50,
-		easing: "easeineaseout",
-	},
-	tapAnimation: [["scaleSphereUp", "scaleSphereDown"]],
 });
 
 module.exports = ARCarDemo;
