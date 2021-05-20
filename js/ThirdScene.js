@@ -33,7 +33,6 @@ var ARCarDemo = createReactClass({
 	render: function () {
 		return (
 			<ViroARScene>
-				<ViroAmbientLight color="#FF0000" intensity="500" />
 				<ViroLightingEnvironment source={require("./res/garage_1k.hdr")} />
 				<ViroARPlaneSelector>
 					<Viro3DObject
@@ -41,12 +40,21 @@ var ARCarDemo = createReactClass({
 						scale={[0.4, 0.4, 0.4]}
 						position={[0, 0, -5]}
 						rotation={[0, 90, 0]}
-						source={require("./res/Intergalactic_Spaceship-(Wavefront).obj")}
+						source={require("./res/Handgun_obj.obj")}
+						resources={[require("./res/handgun_S.jpg")]}
 						type="OBJ"
+						materials="white"
 					/>
 				</ViroARPlaneSelector>
 			</ViroARScene>
 		);
+	},
+});
+
+ViroMaterials.createMaterials({
+	white: {
+		lightingModel: "PBR",
+		diffuseTexture: require("./res/handgun_S.jpg"),
 	},
 });
 

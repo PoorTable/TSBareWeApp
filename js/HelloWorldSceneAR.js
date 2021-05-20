@@ -46,24 +46,22 @@ var ARCarDemo = createReactClass({
 						scale={[0.4, 0.4, 0.4]}
 						position={[0, 0, -5]}
 						rotation={[0, 90, 0]}
-						source={require("./res/Crate.obj")}
-						resources={[
-							require("./res/5.png"),
-							require("./res/6.png"),
-							require("./res/7.png"),
-							require("./res/8.png"),
-							require("./res/9.png"),
-							require("./res/10.png"),
-							require("./res/11.png"),
-							require("./res/12.png"),
-						]}
+						source={require("./res/Сборка стенда.obj")}
 						type="OBJ"
+						materials="white"
 					/>
 				</ViroARPlaneSelector>
 
 				<ViroAmbientLight color="#FFFFFF" />
 			</ViroARScene>
 		);
+	},
+});
+
+ViroMaterials.createMaterials({
+	white: {
+		lightingModel: "PBR",
+		diffuseTexture: require("./res/Стенд_сборка.png"),
 	},
 });
 
