@@ -26,20 +26,14 @@ var createReactClass = require("create-react-class");
 var ARCarDemo = createReactClass({
 	getInitialState() {
 		return {
-			texture: "white",
 			playAnim: false,
-			animateCar: false,
-			tapWhite: false,
-			tapBlue: false,
-			tapGrey: false,
-			tapRed: false,
-			tapYellow: false,
 		};
 	},
 
 	render: function () {
 		return (
 			<ViroARScene>
+				<ViroAmbientLight color="#FF0000" intensity="500" />
 				<ViroLightingEnvironment source={require("./res/garage_1k.hdr")} />
 				<ViroARPlaneSelector>
 					<Viro3DObject
@@ -51,14 +45,6 @@ var ARCarDemo = createReactClass({
 						type="OBJ"
 					/>
 				</ViroARPlaneSelector>
-
-				<ViroQuad
-					rotation={[-90, 0, 0]}
-					position={[0, -0.001, 0]}
-					width={2.5}
-					height={2.5}
-					arShadowReceiver={true}
-				/>
 			</ViroARScene>
 		);
 	},
