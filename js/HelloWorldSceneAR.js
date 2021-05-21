@@ -43,10 +43,11 @@ var ARCarDemo = createReactClass({
 				<ViroARPlaneSelector>
 					<Viro3DObject
 						visible={true}
-						scale={[0.4, 0.4, 0.4]}
+						scale={[2, 2, 2]}
 						position={[0, 0, -5]}
 						rotation={[0, 90, 0]}
 						source={require("./res/Сборка стенда.obj")}
+						resources={[require("./res/untitled.mtl")]}
 						type="OBJ"
 						materials="white"
 					/>
@@ -61,7 +62,7 @@ var ARCarDemo = createReactClass({
 ViroMaterials.createMaterials({
 	white: {
 		lightingModel: "PBR",
-		diffuseTexture: require("./res/Стенд_сборка.png"),
+		diffuseTexture: require("./res/stand.png"),
 	},
 });
 
