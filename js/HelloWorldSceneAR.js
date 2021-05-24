@@ -46,8 +46,7 @@ var ARCarDemo = createReactClass({
 						scale={[2, 2, 2]}
 						position={[0, 0, -5]}
 						rotation={[0, 90, 0]}
-						source={require("./res/Сборка стенда.obj")}
-						resources={[require("./res/untitled.mtl")]}
+						source={require("./res/untitled.obj")}
 						type="OBJ"
 						materials="white"
 					/>
@@ -62,7 +61,7 @@ var ARCarDemo = createReactClass({
 ViroMaterials.createMaterials({
 	white: {
 		lightingModel: "PBR",
-		diffuseTexture: require("./res/stand.png"),
+		diffuseTexture: require("./res/abc.png"),
 	},
 });
 
