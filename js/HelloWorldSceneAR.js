@@ -44,8 +44,7 @@ var ARCarDemo = createReactClass({
 					<Viro3DObject
 						visible={true}
 						scale={[2, 2, 2]}
-						position={[0, 0, -5]}
-						rotation={[0, 90, 0]}
+						position={[0, 0, 0]}
 						source={require("./res/untitled.obj")}
 						type="OBJ"
 						materials="white"
