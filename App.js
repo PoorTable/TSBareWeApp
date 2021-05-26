@@ -15,7 +15,12 @@ import {
 	StyleSheet,
 	PixelRatio,
 	TouchableHighlight,
+	ScrollView,
+	TouchableOpacity,
+	ImageBackground,
 } from "react-native";
+
+import Swiper from "react-native-swiper";
 
 import { ViroVRSceneNavigator, ViroARSceneNavigator } from "react-viro";
 
@@ -73,35 +78,51 @@ export default class ViroSample extends Component {
 	// Presents the user with a choice of an AR or VR experience
 	_getExperienceSelector() {
 		return (
-			<View style={localStyles.outer}>
-				<View style={localStyles.inner}>
-					<Text style={localStyles.titleText}>Выберите стенд:</Text>
-
-					<TouchableHighlight
-						style={localStyles.buttons}
-						onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
-						underlayColor={"#68a0ff"}
+			<Swiper style={styles.wrapper} showsButtons={true}>
+				<View style={styles.slide1}>
+					<ImageBackground
+						source={{
+							uri: "https://reactjs.org/logo-og.png",
+						}}
+						style={styles.image}
 					>
-						<Text style={localStyles.buttonText}>1</Text>
-					</TouchableHighlight>
-
-					<TouchableHighlight
-						style={localStyles.buttons}
-						onPress={this._getExperienceButtonOnPress(VR_NAVIGATOR_TYPE)}
-						underlayColor={"#68a0ff"}
-					>
-						<Text style={localStyles.buttonText}>2</Text>
-					</TouchableHighlight>
-
-					<TouchableHighlight
-						style={localStyles.buttons}
-						onPress={this._getExperienceButtonOnPress(AR1_NAVIGATOR_TYPE)}
-						underlayColor={"#68a0ff"}
-					>
-						<Text style={localStyles.buttonText}>3</Text>
-					</TouchableHighlight>
+						<TouchableOpacity
+							style={styles.Button}
+							onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
+						>
+							<Text style={styles.text}>БГ-БПМ-01</Text>
+						</TouchableOpacity>
+					</ImageBackground>
 				</View>
-			</View>
+				<View style={styles.slide2}>
+					<ImageBackground
+						source={{
+							uri: "https://reactjs.org/logo-og.png",
+						}}
+						style={styles.image}
+					>
+						<TouchableOpacity
+							onPress={this._getExperienceButtonOnPress(VR_NAVIGATOR_TYPE)}
+						>
+							<Text style={styles.text}>abc</Text>
+						</TouchableOpacity>
+					</ImageBackground>
+				</View>
+				<View style={styles.slide3}>
+					<ImageBackground
+						source={{
+							uri: "https://reactjs.org/logo-og.png",
+						}}
+						style={styles.image}
+					>
+						<TouchableOpacity
+							onPress={this._getExperienceButtonOnPress(AR1_NAVIGATOR_TYPE)}
+						>
+							<Text style={styles.text}>And Simple</Text>
+						</TouchableOpacity>
+					</ImageBackground>
+				</View>
+			</Swiper>
 		);
 	}
 
@@ -152,10 +173,46 @@ export default class ViroSample extends Component {
 	}
 }
 
+const styles = StyleSheet.create({
+	wrapper: {},
+	slide1: {
+		flex: 1,
+		justifyContent: "center",
+		alignItems: "center",
+	},
+	slide2: {
+		flex: 1,
+		justifyContent: "center",
+		alignItems: "center",
+	},
+	slide3: {
+		flex: 1,
+		justifyContent: "center",
+		alignItems: "center",
+	},
+	text: {
+		color: "#fff",
+		fontSize: 30,
+		fontWeight: "bold",
+	},
+	image: {
+		flex: 1,
+		width: "100%",
+		resizeMode: "cover",
+		justifyContent: "center",
+	},
+	button: {
+		flex: 1,
+		justifyContent: "center",
+		alignItems: "center",
+	},
+});
+
 var localStyles = StyleSheet.create({
 	viroContainer: {
 		flex: 1,
 		backgroundColor: "black",
+		flexDirection: "row",
 	},
 	outer: {
 		flex: 1,
@@ -182,16 +239,13 @@ var localStyles = StyleSheet.create({
 		fontSize: 20,
 	},
 	buttons: {
-		height: 80,
-		width: 150,
-		paddingTop: 20,
-		paddingBottom: 20,
-		marginTop: 10,
-		marginBottom: 10,
+		flex: 1,
+		height: "95%",
+		width: "95%",
 		backgroundColor: "#68a0cf",
 		borderRadius: 10,
 		borderWidth: 1,
-		borderColor: "#fff",
+		borderColor: "#fffaaa",
 	},
 	exitButton: {
 		height: 50,
