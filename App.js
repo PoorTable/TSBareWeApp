@@ -74,7 +74,7 @@ export default class ViroSample extends Component {
 				<View style={styles.slide1}>
 					<ImageBackground
 						source={{
-							uri: "https://reactjs.org/logo-og.png",
+							uri: "https://i.imgur.com/G7gHLaX.jpg",
 						}}
 						style={styles.image}
 					>
@@ -118,7 +118,6 @@ export default class ViroSample extends Component {
 		);
 	}
 
-	// Returns the ViroARSceneNavigator which will start the AR experience
 	_getARNavigator() {
 		return (
 			<ViroARSceneNavigator
@@ -188,6 +187,7 @@ const styles = StyleSheet.create({
 		width: "100%",
 		resizeMode: "cover",
 		justifyContent: "center",
+		alignItems: "center",
 	},
 	button: {
 		flex: 1,
